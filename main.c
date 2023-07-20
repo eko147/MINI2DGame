@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	check_map(&game);
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.width * 64,\
-	game.height * 64, "SO_LONG");
+	game.height * 64, "MINIGAME");
 	game.move_cnt = 0;
 	mlx_key_hook(game.win, press_key, &game);
 	mlx_loop_hook(game.mlx, paint_map, &game);
@@ -44,5 +44,3 @@ int	main(int argc, char **argv)
 	mlx_loop(game.mlx);
 	return (0);
 }
-
-//so_long 이름 바꾸기 
