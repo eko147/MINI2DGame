@@ -1,5 +1,6 @@
 #include "minigame.h"
 
+
 void	print_err(char *message)
 {
 	write(2, "Error\n", 6);
@@ -37,6 +38,7 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.width * 64,\
 	game.height * 64, "MINIGAME");
+	read_imgs(&game);
 	game.move_cnt = 0;
 	mlx_key_hook(game.win, press_key, &game);
 	mlx_loop_hook(game.mlx, paint_map, &game);

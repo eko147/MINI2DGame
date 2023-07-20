@@ -1,5 +1,6 @@
 #include "minigame.h"
 
+
 void	move_move(t_game *game, int idx)
 {
 	if (game->map_line[idx] == '0')
@@ -20,7 +21,7 @@ void	move_move(t_game *game, int idx)
 	write(1, "move: ", 6);
 	ft_putnbr(game->move_cnt);
 	write(1, "\n", 1);
-	game->player_idx = idx;
+	game->player_idx = idx; 
 }
 
 void	move_w(t_game *game)

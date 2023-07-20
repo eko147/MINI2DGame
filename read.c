@@ -26,7 +26,7 @@ char	*withoutnl(char *line, int height)
 
 	idx2 = 0;
 	idx = 0;
-	line_nnl = malloc(ft_strlen(line) - height + 2);
+	line_nnl = malloc(ft_strlen(line) - height + 2); 
 	if (!line_nnl)
 		print_err("Malloc Error\n");
 	while (line[idx])
@@ -47,7 +47,7 @@ void	before_read(const char *filename, t_game *game, int	*fd, char **line)
 	if (*fd < 0)
 		print_err("Failed to open file.\n");
 	*line = get_next_line(*fd);
-	if (!*line)
+	if (!*line)  
 		print_err("The file is empty.\n");
 	game->width = ft_strlen(*line) - 1;
 	game->map_line = ft_strdup(*line);
@@ -70,9 +70,9 @@ void	read_map(const char *filename, t_game *game)
 			line_len++;
 		if (line_len != game->width)
 			print_err("Is not_square");
-		free(line);
+		free(line); 
 		line = get_next_line(fd);
-		if (line == 0)
+		if (line == 0)  
 			break ;
 		tmp = game->map_line;
 		game->map_line = ft_strjoin(game->map_line, line);

@@ -1,5 +1,6 @@
 #include "minigame.h"
 
+
 void	check_element(t_game *game)
 {
 	int	i;
@@ -19,7 +20,7 @@ void	check_element(t_game *game)
 		}
 		else if (game->map_line[i] == 'E')
 			game->exit++;
-		else if (game->map_line[i] != '0' && game->map_line[i] != '1') 
+		else if (game->map_line[i] != '0' && game->map_line[i] != '1')
 			print_err("Invalid element");
 		i++;
 	}
@@ -31,12 +32,12 @@ void	check_element(t_game *game)
 
 void	check_playable_c(int width, int idx, int *colltmp, char *map_line)
 {
-	if (map_line[idx] == '1' || map_line[idx] == 'E') 
-		return ;				
-	if (map_line[idx] == 'C') 
+	if (map_line[idx] == '1' || map_line[idx] == 'E')
+		return ;
+	if (map_line[idx] == 'C')
 		(*colltmp)--;
-	map_line[idx] = '1'; 
-	if (*colltmp == 0) 
+	map_line[idx] = '1';
+	if (*colltmp == 0)
 		return ;
 	check_playable_c(width, idx - width, colltmp, map_line);
 	check_playable_c(width, idx + width, colltmp, map_line);
@@ -44,15 +45,14 @@ void	check_playable_c(int width, int idx, int *colltmp, char *map_line)
 	check_playable_c(width, idx - 1, colltmp, map_line);
 }
 
-
 void	check_playable_e(int width, int idx, int *exittmp, char *map_line)
 {
-	if (map_line[idx] == '1')
-		return ;				
+	if (map_line[idx] == '1') 
+		return ;			
 	if (map_line[idx] == 'E')
 		(*exittmp)--;
-	map_line[idx] = '1';  
-	if (*exittmp == 0)
+	map_line[idx] = '1'; 
+	if (*exittmp == 0) 
 		return ;
 	check_playable_e(width, idx - width, exittmp, map_line);
 	check_playable_e(width, idx + width, exittmp, map_line);
@@ -66,9 +66,9 @@ void	check_playable(t_game	*game)
 	int		exittmp;
 	char	*map_line;
 
-	exittmp = 1;
-	map_line = ft_strdup(game->map_line);
-	colltmp = game->collector;
+	exittmp = 1; 
+	map_line = ft_strdup(game->map_line); 
+	colltmp = game->collector; 
 	check_playable_c(game->width, game->player_idx, &colltmp, map_line);
 	free(map_line);
 	map_line = ft_strdup(game->map_line);

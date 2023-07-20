@@ -1,5 +1,6 @@
 #include "minigame.h"
 
+
 int	press_key(int key_code, t_game *game)
 {
 	if (key_code == KEY_ESC)

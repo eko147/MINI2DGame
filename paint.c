@@ -1,5 +1,6 @@
 #include "minigame.h"
 
+
 void	paint_img(t_game *game, int x, int y, int i)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->img.empty, x, y);
